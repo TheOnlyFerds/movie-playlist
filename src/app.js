@@ -16,7 +16,7 @@ init();
 const showMovie = async function () {
   try {
     const res = await fetch(
-      `${API_URL}apikey=${API_Key}&t=${searchTerm.value}`
+      `https://cors-anywhere.herokuapp.com/${API_URL}apikey=${API_Key}&t=${searchTerm.value}`
     );
     const data = await res.json();
 
@@ -34,7 +34,7 @@ const showBookmarks = async function () {
   try {
     parentEl.innerHTML = "";
     for (let i = 0; i < bookmarks.length; i++) {
-      const res = await fetch(`${API_URL}apikey=${API_Key}&i=${bookmarks[i]}`);
+      const res = await fetch(`https://cors-anywhere.herokuapp.com/${API_URL}apikey=${API_Key}&i=${bookmarks[i]}`);
       const data = await res.json();
 
       if (data.Response == "False") throw new Error(`404 Error🎇`);
